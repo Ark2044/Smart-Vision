@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Freshness Detection</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 shadow-lg">
+      <div
+        class="container mx-auto flex justify-between items-center flex-wrap"
+      >
+        <div class="text-white text-2xl font-bold">Smart Vision</div>
+        <div class="space-x-4 flex items-center">
+          <a
+            href="/"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Home</a
+          >
+          <a
+            href="/upload"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Upload Image</a
+          >
+          <a
+            href="/freshness"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Freshness Detection</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto p-6 mt-6 bg-white shadow-lg rounded-lg">
+      <h1 class="text-3xl font-bold mb-4 text-center">
+        <i class="fas fa-leaf text-green-600"></i> Freshness Detection
+      </h1>
+
+      <div class="flex flex-col sm:flex-row items-center mb-6">
+        <div class="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+          <i class="fas fa-camera text-green-600 fa-5x"></i>
+        </div>
+        <div>
+          <p class="mt-2 text-gray-700">
+            Our Freshness Detection feature uses advanced computer vision and
+            machine learning techniques to assess the quality and freshness of
+            various vegetables and fruits in real-time. Simply start the camera,
+            and our system will analyze the items in front of you.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center mb-6">
+        <div class="flex-shrink-0 mb-4 sm:mb-0 sm:mr-4">
+          <i class="fas fa-check-circle text-yellow-500 fa-5x"></i>
+        </div>
+        <div>
+          <p class="mt-2 text-gray-700">
+            The system classifies the items into categories such as
+            <strong>Fresh</strong>, <strong>Ripe</strong>,
+            <strong>Unripe</strong>, <strong>Old</strong>, and
+            <strong>Damaged</strong>, providing you with instant feedback on
+            their condition.
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col sm:flex-row justify-center space-x-0 sm:space-x-4 mb-4"
+      >
+        <button
+          id="start-button"
+          class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-200 mb-2 sm:mb-0"
+        >
+          <i class="fas fa-play"></i> Start Camera
+        </button>
+        <button
+          id="stop-button"
+          class="bg-red-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-red-600 transition duration-200"
+          disabled
+        >
+          <i class="fas fa-stop"></i> Stop Camera
+        </button>
+      </div>
+
+      <div class="mt-4">
+        <img
+          id="video-feed"
+          src=""
+          style="display: none"
+          class="border border-gray-300 rounded-lg shadow-md mx-auto w-full max-w-md"
+        />
+      </div>
+
+      <p class="mt-4 text-gray-600 text-center">
+        Click "Start Camera" to begin freshness detection.
+      </p>
+    </div>
+
+    <script>
+      let videoFeed = document.getElementById("video-feed");
+      let startButton = document.getElementById("start-button");
+      let stopButton = document.getElementById("stop-button");
+
+      startButton.onclick = function () {
+        videoFeed.src = "/video_feed";
+        videoFeed.style.display = "block"; // Show the video feed
+        startButton.disabled = true; // Disable start button
+        stopButton.disabled = false; // Enable stop button
+      };
+
+      stopButton.onclick = function () {
+        fetch("/stop_camera", { method: "POST" })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data.status); // Optional: log the response
+            videoFeed.src = ""; // Clear the source to stop the video feed
+            videoFeed.style.display = "none"; // Hide the video feed
+            startButton.disabled = false; // Enable start button
+            stopButton.disabled = true; // Disable stop button
+          });
+      };
+    </script>
+  </body>
+</html>

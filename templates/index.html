@@ -8,28 +8,222 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .step-icon {
+        font-size: 60px;
+        color: #1d4ed8; /* Tailwind blue-600 */
+      }
+    </style>
   </head>
   <body class="bg-gray-100">
-    <div class="container mx-auto p-6">
-      <h1 class="text-3xl font-bold text-center mb-4">
-        Smart Vision Technology
-      </h1>
-      <p class="text-center mb-6">
-        An innovative solution for determining the freshness of organic produce
-        using advanced image processing techniques.
-      </p>
-      <h2 class="text-2xl font-semibold mb-2">Features:</h2>
-      <ul class="list-disc pl-6 mb-4">
-        <li>Text extraction from packaged foods using OCR.</li>
-        <li>Freshness detection based on color and texture analysis.</li>
-        <li>User-friendly interface for image uploads.</li>
-        <li>Real-time results for quality control.</li>
-      </ul>
-      <div class="text-center">
-        <a href="/upload" class="bg-blue-500 text-white px-4 py-2 rounded"
-          >Upload an Image</a
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 shadow-lg">
+      <div
+        class="container mx-auto flex justify-between items-center flex-wrap"
+      >
+        <div class="text-white text-2xl font-bold">Smart Vision</div>
+        <div class="space-x-4 flex items-center">
+          <a
+            href="/"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Home</a
+          >
+          <a
+            href="/upload"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Upload Image</a
+          >
+          <a
+            href="/freshness"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Freshness Detection</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-blue-600 text-white py-20">
+      <div class="container mx-auto text-center">
+        <h1 class="text-5xl font-bold mb-4">
+          Welcome to Smart Vision Technology
+        </h1>
+        <p class="text-xl mb-6">
+          Your innovative solution for analyzing the freshness of products with
+          cutting-edge AI technology.
+        </p>
+        <a
+          href="/upload"
+          class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-gray-200 transition duration-200"
+          >Get Started</a
         >
       </div>
     </div>
+
+    <!-- Features Section -->
+    <div class="container mx-auto p-10">
+      <h2 class="text-3xl font-bold text-center mb-8">Why Choose Us?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Accurate Analysis</h3>
+          <p>
+            Our AI-driven technology provides precise analysis of product
+            freshness to ensure quality and safety.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">User-Friendly Interface</h3>
+          <p>
+            The platform is designed for ease of use, allowing anyone to analyze
+            products without technical knowledge.
+          </p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-semibold mb-2">Instant Results</h3>
+          <p>
+            Receive real-time results immediately after uploading your product
+            image, allowing for quick decision-making.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- What Our System Does Section -->
+    <div class="bg-white py-10">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6">What Our System Does</h2>
+        <p class="mb-6 text-lg text-gray-700">
+          Our technology goes beyond just freshness detection. Here’s how it can
+          help you:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div
+            class="bg-gray-100 p-6 rounded-lg shadow-lg flex flex-col items-center"
+          >
+            <i class="fas fa-camera step-icon mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Image Capture</h3>
+            <p class="text-center">
+              Utilize your device’s camera for real-time freshness detection
+              without the need for uploads.
+            </p>
+          </div>
+          <div
+            class="bg-gray-100 p-6 rounded-lg shadow-lg flex flex-col items-center"
+          >
+            <i class="fas fa-chart-line step-icon mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Freshness Insights</h3>
+            <p class="text-center">
+              Get detailed insights and freshness scores based on advanced
+              analysis algorithms.
+            </p>
+          </div>
+          <div
+            class="bg-gray-100 p-6 rounded-lg shadow-lg flex flex-col items-center"
+          >
+            <i class="fas fa-balance-scale step-icon mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2">Quality Assurance</h3>
+            <p class="text-center">
+              Ensure the quality and safety of your products before making
+              purchasing decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works Section -->
+    <div class="bg-gray-100 py-10">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6">How It Works</h2>
+        <p class="mb-6 text-lg text-gray-700">
+          Follow these simple processes to get started with our platform:
+        </p>
+
+        <!-- Image Upload Process -->
+        <div class="mb-12">
+          <h3 class="text-3xl font-bold mb-4">Image Upload for OCR</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+            >
+              <i class="fas fa-upload step-icon mb-4"></i>
+              <h4 class="text-xl font-semibold mb-2">Step 1</h4>
+              <p>Upload an image of the product you want to analyze.</p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+            >
+              <i class="fas fa-search step-icon mb-4"></i>
+              <h4 class="text-xl font-semibold mb-2">Step 2</h4>
+              <p>
+                Our AI processes the image to extract key details like expiry
+                date, MRP, and brand.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+            >
+              <i class="fas fa-check-circle step-icon mb-4"></i>
+              <h4 class="text-xl font-semibold mb-2">Step 3</h4>
+              <p>
+                Receive instant results with extracted information displayed on
+                the screen.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Freshness Detection Process -->
+        <div>
+          <h3 class="text-3xl font-bold mb-4">Real-time Freshness Detection</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+            >
+              <i class="fas fa-camera step-icon mb-4"></i>
+              <h4 class="text-xl font-semibold mb-2">Step 1</h4>
+              <p>
+                Access the freshness detection feature using your device’s
+                camera.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+            >
+              <i class="fas fa-eye step-icon mb-4"></i>
+              <h4 class="text-xl font-semibold mb-2">Step 2</h4>
+              <p>
+                Point the camera at the product to analyze its freshness in
+                real-time.
+              </p>
+            </div>
+            <div
+              class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+            >
+              <i class="fas fa-info-circle step-icon mb-4"></i>
+              <h4 class="text-xl font-semibold mb-2">Step 3</h4>
+              <p>
+                Get instant feedback on the product's freshness status and
+                quality score.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Smart Vision Technology. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

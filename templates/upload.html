@@ -8,10 +8,60 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 shadow-lg">
+      <div
+        class="container mx-auto flex justify-between items-center flex-wrap"
+      >
+        <div class="text-white text-2xl font-bold">Smart Vision</div>
+        <div class="space-x-4 flex items-center">
+          <a
+            href="/"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Home</a
+          >
+          <a
+            href="/upload"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Upload Image</a
+          >
+          <a
+            href="/freshness"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Freshness Detection</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-blue-600 text-white py-20">
+      <div class="container mx-auto text-center">
+        <h1 class="text-5xl font-bold mb-4">Upload an Image</h1>
+        <p class="text-xl mb-6">
+          Analyze the freshness of your products with our advanced AI
+          technology.
+        </p>
+      </div>
+    </div>
+
+    <!-- Upload Form Section -->
     <div class="container mx-auto p-6">
-      <h1 class="text-2xl font-bold text-center mb-4">Upload an Image</h1>
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-4">
+        Select an Image to Analyze
+      </h2>
+      <p class="text-center mb-6 text-lg text-gray-700">
+        Please select an image of the product you want to analyze.
+      </p>
       <form
         action="/upload"
         method="POST"
@@ -23,15 +73,67 @@
           name="image"
           accept="image/*"
           required
-          class="mb-4 border border-gray-400 p-2"
+          class="mb-4 border border-gray-400 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 w-full max-w-md"
         />
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+        <button
+          type="submit"
+          class="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition duration-200"
+        >
           Analyze
         </button>
       </form>
       <div class="text-center mt-4">
-        <a href="/" class="text-blue-500">Back to Home</a>
+        <a href="/" class="text-blue-600 hover:underline">Back to Home</a>
       </div>
     </div>
+
+    <!-- How It Works Section -->
+    <div class="bg-gray-100 py-10">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-6">How It Works</h2>
+        <p class="mb-6 text-lg text-gray-700">
+          Follow these simple steps to get started:
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+          >
+            <i
+              class="fas fa-upload text-blue-600 mb-4"
+              style="font-size: 60px"
+            ></i>
+            <h3 class="text-xl font-semibold mb-2">Step 1</h3>
+            <p>Upload an image of the product you want to analyze.</p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+          >
+            <i
+              class="fas fa-search text-blue-600 mb-4"
+              style="font-size: 60px"
+            ></i>
+            <h3 class="text-xl font-semibold mb-2">Step 2</h3>
+            <p>Our AI analyzes the image for freshness indicators.</p>
+          </div>
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center"
+          >
+            <i
+              class="fas fa-check-circle text-blue-600 mb-4"
+              style="font-size: 60px"
+            ></i>
+            <h3 class="text-xl font-semibold mb-2">Step 3</h3>
+            <p>Receive instant results and insights on product quality.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Smart Vision Technology. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

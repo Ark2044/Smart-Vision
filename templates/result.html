@@ -8,27 +8,89 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 shadow-lg">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="text-white text-2xl font-bold">Smart Vision</div>
+        <div class="space-x-4">
+          <a
+            href="/"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Home</a
+          >
+          <a
+            href="/upload"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Upload Image</a
+          >
+          <a
+            href="/freshness"
+            class="text-white hover:text-blue-300 transition duration-200"
+            >Freshness Detection</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-blue-600 text-white py-20">
+      <div class="container mx-auto text-center">
+        <h1 class="text-5xl font-bold mb-4">Analysis Result</h1>
+        <p class="text-xl mb-6">
+          Here are the results from your uploaded image.
+        </p>
+      </div>
+    </div>
+
     <div class="container mx-auto p-6">
-      <h1 class="text-2xl font-bold text-center mb-4">Analysis Result</h1>
-      <div class="mb-4 text-center">
-        <h2 class="font-semibold">Detected Text:</h2>
-        <p class="bg-white border border-gray-300 p-2 inline-block">
+      <div class="mb-6">
+        <h2 class="font-semibold text-xl mb-2">Detected Text:</h2>
+        <p
+          class="bg-gray-100 border border-gray-300 p-4 rounded shadow-md inline-block"
+        >
           {{ raw_text }}
         </p>
       </div>
-      <div class="text-center">
-        <h2 class="font-semibold">Freshness Status:</h2>
+      <div class="mb-6">
+        <h2 class="font-semibold text-xl mb-2">Expiry Date Status:</h2>
         <p
-          class="text-lg font-bold {{ 'text-green-500' if freshness_status == 'Fresh' else 'text-red-500' }}"
+          class="text-lg font-bold {{ 'text-green-600' if 'Detected' in expiry_status else 'text-red-600' }}"
         >
-          {{ freshness_status }}
+          {{ expiry_status }}
         </p>
       </div>
-      <div class="text-center mt-4">
-        <a href="/" class="text-blue-500">Back to Home</a>
+      <div class="mb-6">
+        <h2 class="font-semibold text-xl mb-2">Product Details:</h2>
+        <ul class="bg-gray-100 border border-gray-300 p-4 rounded shadow-md">
+          <li><strong>Expiry Date:</strong> {{ details['expiry_date'] }}</li>
+          <li><strong>MRP:</strong> {{ details['mrp'] }}</li>
+          <li><strong>Pack Size:</strong> {{ details['pack_size'] }}</li>
+          <li><strong>Brand:</strong> {{ details['brand'] }}</li>
+          <li><strong>Category:</strong> {{ details['category'] }}</li>
+        </ul>
+      </div>
+      <div class="text-center">
+        <a
+          href="/"
+          class="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition duration-200"
+          >Back to Home</a
+        >
       </div>
     </div>
+
+    <footer class="bg-gray-800 text-white py-4">
+      <div class="container mx-auto text-center">
+        <p>&copy; 2024 Smart Vision Technology. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
